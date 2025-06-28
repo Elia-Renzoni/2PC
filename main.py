@@ -7,14 +7,18 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.post("")
+@app.post("/tx")
 def execute_client_tx():
     pass
 
-@app.post("")
+@app.post("/election")
 def execute_leader_election():
     pass
 
-@app.post("")
+@app.post("/join")
 def execute_join_cluster(): 
+    pass
+
+@app.post("/hearbeat")
+def execute_heartbeat():
     pass
