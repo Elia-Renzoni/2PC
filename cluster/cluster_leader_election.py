@@ -9,12 +9,18 @@ class LeaderElection:
         
 
     def get_monarchical_leader(self) -> tuple[str, int, int]:
-        self.ranking.sort(key=lambda item: item.nodeRank)
+        self.ranking.sort(key=lambda item: item.get_rank())
         leader = self.ranking.pop(len(self.ranking) - 1)
         return leader.get_addr(), leader.get_port(), leader.get_rank()
+    
+    def local_leader_election(self, old_leader_addr: str):
+        for node in self.ranking:
+            if node.get_addr() is old_leader_addr:
+                self.ranking.remove(node)
+                break
+        
+        self.ranking.sort(key=lambda item: item.get_rank())
 
-    def search_highest_rank(self) -> str:
-        pass
 
 class ListItem:
     def __init__(self, addr: str, port: int, rank: int):
