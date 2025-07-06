@@ -15,7 +15,7 @@ def execute_client_tx():
 def execute_leader_election():
     pass
 
-@app.post("/join")
+@app.post("/newnode")
 def execute_join_cluster(): 
     pass
 

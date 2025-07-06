@@ -21,13 +21,12 @@ class ClusterManager:
     def remove_node(self, nodeAddress: str):
         self.group.pop(nodeAddress)
     
-    def get_cluster_group(self) -> list[str]:
+    def get_cluster_group(self) -> tuple[list[str], int]:
         for nodeTCPAddr, nodeTCPPort in self.group.items():
             self.bindedConns.append(self.join_addr_and_port(nodeTCPAddr, nodeTCPPort))
         
-        return self.bindedConns
+        dim = len(self.bindedConns)
+        return self.bindedConns, dim
 
-
-    
     def join_addr_and_port(self, tcpAddress: str, tcpPort: int) -> str:
         return "{}:{}".format(tcpAddress, tcpPort)
