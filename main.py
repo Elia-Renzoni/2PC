@@ -42,6 +42,10 @@ def execute_pong(req: Request, res: Response):
     res.headers["Content-Type"] = "application/json"
     return Response(content=json_pong_data)
 
+@app.post("/reults")
+def execute_result_comparison(req: Request, res: Response):
+    pass
+
 if __name__ == "__main__":
     cluster_m = ClusterManager()
     leader_election_m = LeaderElection()
