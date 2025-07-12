@@ -15,8 +15,3 @@ class DataAdapter:
         finally:
             # TODO -> contact the leader in case of commit
             pass
-        
-
-
-    def call_the_leader(self):
-        pass
