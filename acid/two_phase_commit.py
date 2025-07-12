@@ -17,7 +17,6 @@ class DistributedCommit:
         self.leader_addr = None
 
     def forward_result_to_leader(self, execution_result: str) -> bool:
-        # TODO -> get leader address
         addr, port, _ = self.leader_m.get_monarchical_leader()
         self.leader_addr = "{}:{}".format(addr, port)
         self.make_forward_request(self.leader_addr, execution_result)
