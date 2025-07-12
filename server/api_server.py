@@ -19,7 +19,3 @@ class ServerNode:
         joined = "{}:{}".format(incoming_node_addr, incoming_node_listen_port)
         self.broadcaster.broadcast_cluster_node(joined)
         
-
-    def server_execute_pong(self):
-        pass
-

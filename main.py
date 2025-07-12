@@ -37,7 +37,10 @@ async def execute_join_cluster(req: Request, res: Response):
 
 @app.post("/ping")
 def execute_pong(req: Request, res: Response):
-    server_m.server_execute_pong()
+    pong_data = {"message": "pong"}
+    json_pong_data = json.dumps(pong_data)
+    res.headers["Content-Type"] = "application/json"
+    return Response(content=json_pong_data)
 
 if __name__ == "__main__":
     cluster_m = ClusterManager()
