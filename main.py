@@ -8,10 +8,17 @@ from server.api_server import ServerNode
 import asyncio
 import json
 
+HOST = "127.0.0.1"
+PORT = 6567
+
 app = FastAPI()
 
 @app.post("/tx")
 def execute_client_tx(req: Request, res: Response):
+    addr, port, _ = leader_election_m.get_monarchical_leader()
+    if addr is HOST and port is PORT:
+        pass
+
     server_m.server_execute_transaction()
 
 '''
