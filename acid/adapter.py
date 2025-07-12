@@ -1,5 +1,5 @@
 import sqlite3
 
-class DistributedCommit:
+class DataAdapter:
     def __init__(self):
         pass
